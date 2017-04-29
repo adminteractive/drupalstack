@@ -1,0 +1,27 @@
+{
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "composer/installers":"^1.2",
+        "drupal-composer/drupal-scaffold": "^2.2",
+        "drupal/core": "~8.3",
+        "drupal/console": "~1.0@dev",
+        "drupal/pathauto": "^1.0"
+    },
+    "scripts": {
+      "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+    },
+    "extra": {
+        "installer-paths": {
+            "drupal/docroot/core": ["type:drupal-core"],
+            "drupal/docroot/libraries/{$name}": ["type:drupal-library"],
+            "drupal/docroot/modules/contrib/{$name}": ["type:drupal-module"],
+            "drupal/docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "drupal/docroot/themes/contrib/{$name}": ["type:drupal-theme"]
+        }
+    }
+}

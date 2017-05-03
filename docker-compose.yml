@@ -1,32 +1,67 @@
 version: '3'
+volumes:
+  db-data:
 services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "8080:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    environment:
+      - DEFAULT_HOST=web.local
   web:
     build: "web"
+    expose:
+      - "80"
     ports:
-      - "80:80"
-    volumes:
-      - ./web/drupal:/web
-      - ./web/sites-enabled:/etc/apache2/sites-enabled/
+      - "9000:9000"
     links:
       - db:mysql
+      - mailhog:mailhog
+    environment:
+      - VIRTUAL_HOST=web.local
+      - XDEBUG_CONFIG=remote_host=172.18.0.4
   db:
-    image: "mariadb:5.5.55"
+    build: "db"
     volumes:
-      - ./db:/var/lib/mysql
+      - db-data:/var/lib/mysql
     environment:
       - MYSQL_USER=app
       - MYSQL_PASSWORD=app
-      - MYSQL_RANDOM_ROOT_PASSWORD=true
+      - MYSQL_ROOT_PASSWORD=app
       - MYSQL_DATABASE=app
+  composer:
+    image: composer/composer
+    volumes:
+      - ./web:/web
+    working_dir: /web
   drush:
     image: drush/drush:8
     volumes:
-      - ./web/drupal:/web
+      - ./web:/web
     links:
       - db:mysql
   console:
-    image: "drupalconsole/console:1.0"
-    volumes:
-      - ./web/drupal:/web
+    image: "drupalconsole/console:1.0-alpine"
     links:
       - db:mysql
+  pma:
+    image: "phpmyadmin/phpmyadmin"
+    expose:
+      - "80"
+    links:
+      - db:mysql
+    environment:
+      - PMA_HOST=mysql
+      - PMA_USER=app
+      - PMA_PASSWORD=app
+      - VIRTUAL_HOST=pma.local
+  mailhog:
+    image: "mailhog/mailhog"
+    expose:
+      - "1025"
+      - "8025"
+    environment:
+      - VIRTUAL_HOST=mailhog.local
+      - VIRTUAL_PORT=8025

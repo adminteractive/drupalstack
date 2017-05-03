@@ -1,7 +1,16 @@
 FROM php:7.1.4-apache
-RUN apt-get update && apt-get install -y && apt-get install -y libpng12-dev libjpeg-dev
 RUN a2enmod rewrite
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+    curl git unzip ssmtp libpng12-dev libjpeg-dev
 RUN docker-php-ext-configure gd --with-jpeg-dir=/usr/include/
-RUN docker-php-ext-install -j$(nproc) gd mbstring opcache pdo pdo_mysql
+RUN docker-php-ext-install gd mbstring opcache pdo pdo_mysql
+RUN yes | pecl install xdebug \
+    && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
+RUN mkdir -p /web/docroot
+COPY ./composer.json /web/
 COPY ./php.ini /usr/local/etc/php/
-WORKDIR /web
+COPY ./ssmtp.conf /etc/ssmtp/
+COPY ./virtualhost.conf /etc/apache2/sites-available/000-default.conf
+RUN chown -R www-data:www-data /web/docroot

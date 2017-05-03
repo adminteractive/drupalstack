@@ -9,7 +9,7 @@
         "composer/installers":"^1.2",
         "drupal-composer/drupal-scaffold": "^2.2",
         "drupal/core": "~8.3",
-        "drupal/console": "~1.0@dev",
+        "drupal/console": "~1.0@dev"
     },
     "scripts": {
       "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"

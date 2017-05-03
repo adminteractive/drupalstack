@@ -2,7 +2,7 @@
 Docker Compose based boilerplate for Drupal 8 development environment
 
 ## Featuring ##
-* Composer
+* Composer based Drupal installation 
 * Drush
 * Drupal Console
 * PHPMyAdmin

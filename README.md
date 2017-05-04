@@ -10,6 +10,7 @@ Docker based development environment for Drupal 8.
 * Drupal Console
 * PHPMyAdmin
 * MailHog
+* Xdebug support
 ## Web interfaces
 You can access the services running in the containers from the following (default) URL-s.
 ### Your Drupal site

@@ -16,6 +16,8 @@ services:
       - "80"
     ports:
       - "9000:9000"
+    volumes:
+      - ./web:/web      
     links:
       - db:mysql
       - mailhog:mailhog

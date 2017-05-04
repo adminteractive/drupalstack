@@ -10,7 +10,11 @@ Docker Compose based boilerplate for Drupal 8 development environment
 * Drupal Console
 * PHPMyAdmin
 * MailHog
-
+## Installing Drupal
+You should use Composer to install Drupal and all it's dependencies. Default dependencies, including Drupal core, are defined in ```web/composer.json``` which you can manage using ```$ docker-compose run composer <command>```. 
+```bash
+$ docker-compose run composer install
+```
 ## Interacting with your installation
 ### Using Composer
 ```bash

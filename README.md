@@ -4,6 +4,7 @@ Docker Compose based boilerplate for Drupal 8 development environment
 ## Featuring
 * Apache 2.4
 * PHP 7.1
+* MariaDB 5.5
 * Composer based Drupal installation 
 * Drush
 * Drupal Console

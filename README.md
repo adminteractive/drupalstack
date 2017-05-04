@@ -24,3 +24,8 @@ $ docker-compose run drush <command>
 ```bash
 $ docker-compose run drupal <command>
 ```
+### Console access to your Apache/PHP conatiner
+```bash
+$ docker exec -it <projectname>_web_1 bash
+```
+You have multiple containers running in your environment. Use ```drupal-compose ps``` to list all the containers you can connect to. 

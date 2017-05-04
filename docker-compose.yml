@@ -17,7 +17,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - ./web:/web      
+      - ./web:/web
     links:
       - db:mysql
       - mailhog:mailhog
@@ -44,6 +44,7 @@ services:
       - ./web:/web
     links:
       - db:mysql
+    working_dir: /web/docroot
   console:
     image: "drupalconsole/console:1.0-alpine"
     links:

@@ -24,6 +24,7 @@ services:
     environment:
       - VIRTUAL_HOST=web.local
       - XDEBUG_CONFIG=remote_host=172.18.0.4
+    working_dir: /web
   db:
     build: "db"
     volumes:

@@ -25,19 +25,34 @@ You should use Composer to install Drupal and all it's dependencies. Default dep
 $ docker-compose run composer install
 ```
 ## Interacting with your Docker environment
-### Using Composer
+You need to run the following commands in your project root folder (where your docker-compose.yml is located).
+### Start the environment
+```bash
+$ docker-compose up -d
+```
+You can also start the environment without the ```-d``` if you'd like to get all log messages to your STDOUT.
+### Stop the environment
+```bash
+$ docker-compose down
+```
+### Check the status of the environment
+```bash
+$ docker-compose ps
+```
+Note: It's expected, that the composer, drupal and drush containers are in exited state.
+### Use Composer
 ```bash
 $ docker-compose run composer <command>
 ```
-### Using Drush
+### Use Drush
 ```bash
 $ docker-compose run drush <command>
 ```
-### Using Drupal Console
+### Use Drupal Console
 ```bash
 $ docker-compose run drupal <command>
 ```
-### Console access to your Apache/PHP conatiner
+### Get console access to your Apache/PHP conatiner
 ```bash
 $ docker exec -it <projectname>_web_1 bash
 ```

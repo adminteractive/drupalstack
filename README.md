@@ -9,7 +9,11 @@ Docker Compose based boilerplate for Drupal 8 development environment
 * MailHog
 
 ## Interacting with your installation
-### Composer
+### Using Composer
 ```bash
 $ docker-compose run composer <command>
+```
+### Using Drush
+```bash
+$ docker-compose run drush <command>
 ```

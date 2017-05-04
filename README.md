@@ -1,5 +1,5 @@
 # Drupalstack
-Docker Compose based boilerplate for Drupal 8 development environment
+Docker based development environment for Drupal 8.
 
 ## Featuring
 * Apache 2.4
@@ -10,6 +10,14 @@ Docker Compose based boilerplate for Drupal 8 development environment
 * Drupal Console
 * PHPMyAdmin
 * MailHog
+## Web interfaces
+You can access the services running in the containers from the following (default) URL-s.
+### Your Drupal site
+```http://web.local:8080```
+### PHPMyAdmin
+```http://pma.local:8080```
+### MailHog
+```http://mailhog.local:8080```
 ## Installing Drupal
 You should use Composer to install Drupal and all it's dependencies. Default dependencies, including Drupal core, are defined in ```web/composer.json``` which you can manage using ```$ docker-compose run composer <command>```. 
 ```bash

@@ -11,7 +11,9 @@ Docker based development environment for Drupal 8.
 * PHPMyAdmin
 * MailHog
 * Xdebug support
-## Web interfaces
+## Configuring the host machine
+The only dependencies for your host machine are Docker and Docker Compose. Follow the set-up instructions on  https://docs.docker.com/engine/installation/linux/ubuntu/ to configure your host.
+## Accessing your services
 You can access the services running in the containers from the following (default) URL-s.
 ### Your Drupal site
 ```http://web.local:8080```

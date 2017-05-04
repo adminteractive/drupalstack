@@ -45,10 +45,13 @@ services:
     links:
       - db:mysql
     working_dir: /web/docroot
-  console:
-    image: "drupalconsole/console:1.0-alpine"
+  drupal:
+    build: drupal-console
+    volumes:
+      - ./web:/web
     links:
       - db:mysql
+    working_dir: /web/docroot
   pma:
     image: "phpmyadmin/phpmyadmin"
     expose:

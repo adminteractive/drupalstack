@@ -2,6 +2,8 @@
 Docker Compose based boilerplate for Drupal 8 development environment
 
 ## Featuring
+* Apache 2.4
+* PHP 7.1
 * Composer based Drupal installation 
 * Drush
 * Drupal Console
@@ -16,4 +18,8 @@ $ docker-compose run composer <command>
 ### Using Drush
 ```bash
 $ docker-compose run drush <command>
+```
+### Using Drupal Console
+```bash
+$ docker-compose run drupal <command>
 ```

@@ -12,7 +12,9 @@ Docker based development environment for Drupal 8.
 * MailHog
 * Xdebug support
 ## Configuring the host machine
-The only dependencies for your host machine are Docker and Docker Compose. Follow the set-up instructions on  https://docs.docker.com/engine/installation/linux/ubuntu/ to configure your host.
+The only dependencies for your host machine are Docker and Docker Compose. Follow the set-up instructions on  https://docs.docker.com/engine/installation/linux/ubuntu/ and https://docs.docker.com/compose/install/ to configure your host.
+## Setting up your environment
+
 ## Accessing your services
 You can access the services running in the containers from the following (default) URL-s.
 ### Your Drupal site

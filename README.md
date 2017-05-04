@@ -24,7 +24,7 @@ You should use Composer to install Drupal and all it's dependencies. Default dep
 ```bash
 $ docker-compose run composer install
 ```
-## Interacting with your installation
+## Interacting with your Docker environment
 ### Using Composer
 ```bash
 $ docker-compose run composer <command>

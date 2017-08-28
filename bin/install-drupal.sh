@@ -4,7 +4,9 @@ set -e
 
 # ---------------------------------------------------------------------------- #
 #                                                                              #
-# Readme: https://github.com/drupal-composer/drupal-project                    #
+# Install Drupal 8 files.                                                      #
+#                                                                              #
+# Readme more: https://github.com/drupal-composer/drupal-project               #
 #                                                                              #
 # ---------------------------------------------------------------------------- #
 
@@ -77,7 +79,7 @@ elif [ -z "$(php_container_running ${PHP_CONTAINER})" ]; then
   sleep 30
 fi
 
-docker exec -it "${PHP_CONTAINER}" bash -c "wget https://raw.githubusercontent.com/drupal-composer/drupal-project/8.x/composer.json -O /usr/local/apache2/htdocs/composer.json"
-docker exec -it "${PHP_CONTAINER}" bash -c "cd /usr/local/apache2/htdocs && composer install"
+docker exec -it "${PHP_CONTAINER}" bash -c "rm -rf /usr/local/apache2/htdocs/web"
+docker exec -it "${PHP_CONTAINER}" bash -c "composer create-project drupal-composer/drupal-project:8.x-dev /usr/local/apache2/htdocs --stability dev --no-interaction"
 
 cd "${WORKING_DIR}"

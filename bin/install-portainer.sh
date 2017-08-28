@@ -4,7 +4,9 @@ set -e
 
 # ---------------------------------------------------------------------------- #
 #                                                                              #
-# Readme: https://github.com/portainer/portainer                               #
+# Install system-wide Portainer service.                                       #
+#                                                                              #
+# Readme more: https://github.com/portainer/portainer                          #
 #                                                                              #
 # ---------------------------------------------------------------------------- #
 

@@ -4,7 +4,7 @@ set -e
 
 # ---------------------------------------------------------------------------- #
 #                                                                              #
-# Show project services exposed ports.                                         #
+# Build and run project services.                                              #
 #                                                                              #
 # ---------------------------------------------------------------------------- #
 
@@ -25,6 +25,6 @@ fi
 
 cd "${PROJECT_ROOT}"
 
-docker-compose -f docker-compose.yml ps
+docker-compose -f docker-compose.yml up -d
 
 cd "${WORKING_DIR}"

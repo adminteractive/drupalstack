@@ -110,6 +110,8 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
 RUN apt-get install -y ssmtp
 COPY ./src/etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 
+RUN apt-get install -y mysql-client
+
 RUN apt-get install -y wget \
   && wget http://files.drush.org/drush.phar -O /usr/local/bin/drush \
   && chmod +x /usr/local/bin/drush \

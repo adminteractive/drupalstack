@@ -4,8 +4,8 @@ Docker based development environment for Drupal 8.
 ## Featuring
 * Apache 2.4
 * PHP 7.1
-* MariaDB 5.5
-* Composer based Drupal installation 
+* MySQL 5.7
+* Composer
 * Drush
 * Drupal Console
 * PHPMyAdmin

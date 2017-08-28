@@ -1,77 +1,51 @@
 version: '3'
 volumes:
-  db-data:
+  mysql-data:
 services:
-  nginx-proxy:
-    image: jwilder/nginx-proxy
+  httpd:
+    build: ./services/httpd
     ports:
-      - "${PORT}:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    environment:
-      - DEFAULT_HOST=${WEB}
-  web:
-    build: "web"
-    expose:
       - "80"
-    ports:
-      - "${XDEBUG_PORT}:9000"
+      - "443"
     volumes:
-      - ./web:/web
+      - ./www:/usr/local/apache2/htdocs
     links:
-      - db:mysql
+      - php:php
+  php:
+    build: ./services/php
+    volumes:
+      - ./www:/usr/local/apache2/htdocs
+    links:
+      - mysql:db
       - mailhog:mailhog
+      - blackfire:blackfire
+  mysql:
+    build: ./services/mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306"
     environment:
-      - VIRTUAL_HOST=${WEB}
-      - XDEBUG_CONFIG=remote_host=172.18.0.4
-      - NR_INSTALL_KEY=${NEWRELIC_KEY}
-      - NR_INSTALL_SILENT=1
-      - NR_APP_NAME=${APP_NAME}
-    working_dir: /web
-  db:
-    build: "db"
-    volumes:
-      - db-data:/var/lib/mysql
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+  blackfire:
+    image: blackfire/blackfire:latest
     environment:
-      - MYSQL_DATABASE=${DB_NAME}
-      - MYSQL_USER=${DB_USER}
-      - MYSQL_PASSWORD=${DB_PASS}
-      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
-  composer:
-    image: composer/composer
-    volumes:
-      - ./web:/web
-    working_dir: /web
-  drush:
-    image: drush/drush:8
-    volumes:
-      - ./web:/web
-    links:
-      - db:mysql
-    working_dir: /web/docroot
-  drupal:
-    build: drupal-console
-    volumes:
-      - ./web:/web
-    links:
-      - db:mysql
-    working_dir: /web/docroot
-  pma:
-    image: "phpmyadmin/phpmyadmin"
-    expose:
+      - BLACKFIRE_SERVER_ID=${BLACKFIRE_SERVER_ID}
+      - BLACKFIRE_SERVER_TOKEN=${BLACKFIRE_SERVER_TOKEN}
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
       - "80"
     links:
-      - db:mysql
+      - mysql:db
     environment:
-      - PMA_HOST=mysql
-      - PMA_USER=app
-      - PMA_PASSWORD=app
-      - VIRTUAL_HOST=${PMA}
+      - PMA_USER=root
+      - PMA_PASSWORD=${MYSQL_ROOT_PASSWORD}
   mailhog:
-    image: "mailhog/mailhog"
-    expose:
+    image: mailhog/mailhog:latest
+    ports:
       - "1025"
       - "8025"
-    environment:
-      - VIRTUAL_HOST=${MAILHOG}
-      - VIRTUAL_PORT=8025

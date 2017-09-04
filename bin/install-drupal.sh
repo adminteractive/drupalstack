@@ -4,7 +4,7 @@ set -e
 
 # ---------------------------------------------------------------------------- #
 #                                                                              #
-# Install Drupal 8 files.                                                      #
+# Install Drupal 8.                                                            #
 #                                                                              #
 # Readme more: https://github.com/drupal-composer/drupal-project               #
 #                                                                              #

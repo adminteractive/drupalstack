@@ -114,4 +114,6 @@ COPY ./src/usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
 COPY ./src/etc/cron.d/drupalstack /etc/cron.d/drupalstack
 COPY ./src/entrypoint.sh /
 
+WORKDIR /usr/local/apache2/htdocs/web
+
 ENTRYPOINT ["/entrypoint.sh"]

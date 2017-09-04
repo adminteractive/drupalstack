@@ -1,1 +1,1 @@
-# */5 * * * * root /usr/local/apache2/htdocs/vendor/drush/drush/drush -r /usr/local/apache2/htdocs/web cron
+# */5 * * * * root drush -r /usr/local/apache2/htdocs/web cron

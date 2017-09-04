@@ -25,7 +25,6 @@ if [ ! -f "${PROJECT_ROOT}/.env" ]; then
   cp "${PROJECT_ROOT}/.env" "${PROJECT_ROOT}/.env.sample"
 fi
 
-
 httpd_container_exists() {
   local PROJECT_ROOT="${1}"
 

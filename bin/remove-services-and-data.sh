@@ -29,6 +29,7 @@ fi
 
 cd "${PROJECT_ROOT}"
 
-docker-compose -f docker-compose.yml kill && docker-compose -f docker-compose.yml rm -fv
+docker-compose -f docker-compose.yml kill
+docker-compose -f docker-compose.yml rm -fv
 
 cd "${WORKING_DIR}"

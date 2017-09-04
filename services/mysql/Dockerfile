@@ -5,3 +5,7 @@ RUN echo "Europe/Tallinn" > /etc/timezone \
 
 COPY ./src/docker-entrypoint-initdb.d/init.sql /docker-entrypoint-initdb.d/init.sql
 COPY ./src/etc/mysql/conf.d/mysql.cnf /etc/mysql/conf.d/mysql.cnf
+
+RUN chmod 600 /etc/mysql/conf.d/mysql.cnf
+
+WORKDIR /usr/local/apache2/htdocs/web

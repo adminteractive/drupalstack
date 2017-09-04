@@ -4,6 +4,7 @@ volumes:
 services:
   httpd:
     build: ./services/httpd
+    hostname: httpd
     ports:
       - "80"
       - "443"
@@ -13,6 +14,7 @@ services:
       - php:php
   php:
     build: ./services/php
+    hostname: php
     volumes:
       - ./www:/usr/local/apache2/htdocs
     links:
@@ -23,8 +25,10 @@ services:
       XDEBUG_CONFIG: remote_connect_back=${XDEBUG_REMOTE_CONNECT_BACK} idekey=${XDEBUG_IDEKEY} remote_host=${XDEBUG_REMOTE_HOST} remote_port=${XDEBUG_REMOTE_PORT}
   mysql:
     build: ./services/mysql
+    hostname: mysql
     volumes:
       - mysql-data:/var/lib/mysql
+      - ./www:/usr/local/apache2/htdocs
     ports:
       - "3306"
     environment:

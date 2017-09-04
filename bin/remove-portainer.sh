@@ -4,7 +4,7 @@ set -e
 
 # ---------------------------------------------------------------------------- #
 #                                                                              #
-# Install system-wide Portainer service.                                       #
+# Remove system-wide Portainer service.                                        #
 #                                                                              #
 # Readme more: https://github.com/portainer/portainer                          #
 #                                                                              #
@@ -19,5 +19,4 @@ if [ "${?}" -ne 0 ]; then
 fi
 
 docker rm -fv portainer || true
-docker pull portainer/portainer:latest
-docker run -d -p 80:9000 --restart="always" --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/endpoints:/endpoints portainer/portainer:latest --no-auth -H unix:///var/run/docker.sock
+docker rmi portainer/portainer:latest

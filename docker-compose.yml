@@ -19,6 +19,8 @@ services:
       - mysql:db
       - mailhog:mailhog
       - blackfire:blackfire
+    environment:
+      XDEBUG_CONFIG: remote_connect_back=${XDEBUG_REMOTE_CONNECT_BACK} idekey=${XDEBUG_IDEKEY} remote_host=${XDEBUG_REMOTE_HOST} remote_port=${XDEBUG_REMOTE_PORT}
   mysql:
     build: ./services/mysql
     volumes:
@@ -26,15 +28,15 @@ services:
     ports:
       - "3306"
     environment:
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   blackfire:
     image: blackfire/blackfire:latest
     environment:
-      - BLACKFIRE_SERVER_ID=${BLACKFIRE_SERVER_ID}
-      - BLACKFIRE_SERVER_TOKEN=${BLACKFIRE_SERVER_TOKEN}
+      BLACKFIRE_SERVER_ID: ${BLACKFIRE_SERVER_ID}
+      BLACKFIRE_SERVER_TOKEN: ${BLACKFIRE_SERVER_TOKEN}
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
@@ -42,8 +44,8 @@ services:
     links:
       - mysql:db
     environment:
-      - PMA_USER=root
-      - PMA_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   mailhog:
     image: mailhog/mailhog:latest
     ports:

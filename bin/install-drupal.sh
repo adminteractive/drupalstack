@@ -81,5 +81,6 @@ fi
 
 docker exec -it "${PHP_CONTAINER}" bash -c "rm -rf /usr/local/apache2/htdocs/web"
 docker exec -it "${PHP_CONTAINER}" bash -c "composer create-project drupal-composer/drupal-project:8.x-dev /usr/local/apache2/htdocs --stability dev --no-interaction"
+docker exec -it "${PHP_CONTAINER}" bash -c "cd /usr/local/apache2/htdocs/web && echo y | ../vendor/drush/drush/drush site-install standard --db-url=mysql://root:root@db/drupal --account-mail=admin@example.com --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name=Drupalstack"
 
 cd "${WORKING_DIR}"

@@ -1,5 +1,5 @@
 # Drupalstack
-Docker based development environment for Drupal 8.
+Docker based development environment for Drupal 8 using only official Docker images.
 
 ## Featuring
 * Apache 2.4
@@ -8,9 +8,35 @@ Docker based development environment for Drupal 8.
 * Composer
 * Drush
 * Drupal Console
-* PHPMyAdmin
+* PhPMyAdmin
 * MailHog
 * Xdebug support
+* Blackfire integration
+* HTTP2 support
+
+
+# Quickstart guide
+
+* Clone this project
+
+    git clone git@github.com:viljaste/drupalstack.git my-project
+
+* Go to project directory
+
+    cd my-project
+    
+* Start project services
+
+    ./bin/start-services.sh
+    
+* Install project
+
+    ./bin/install-project.sh
+    
+* Get project 
+
+    ./bin/show-ports.sh
+
 ## Configuring the host machine
 The only dependencies for your host machine are Docker and Docker Compose. Follow the set-up instructions on  https://docs.docker.com/engine/installation/linux/ubuntu/ and https://docs.docker.com/compose/install/ to configure your host.
 ## Setting up your environment

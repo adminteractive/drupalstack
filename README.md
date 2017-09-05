@@ -250,9 +250,9 @@ and <https://docs.docker.com/compose/install/> to configure your host.
 
 **NB! This will change in the future.**
 
-## History
+## Where it all started
 
-https://github.com/dockerizedrupal/drupalcamp-baltics-2015
+[Using Docker to boost your development experience with Drupal](https://github.com/dockerizedrupal/drupalcamp-baltics-2015)
 
 ## License
 

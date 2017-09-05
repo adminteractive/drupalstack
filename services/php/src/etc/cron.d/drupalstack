@@ -1,0 +1,1 @@
+# */5 * * * * root drush -r /usr/local/apache2/htdocs/web cron

@@ -1,0 +1,6 @@
+.idea
+
+.env
+
+*.sql
+*.sql.gz

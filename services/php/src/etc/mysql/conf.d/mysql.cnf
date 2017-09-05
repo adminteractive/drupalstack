@@ -1,0 +1,5 @@
+[mysqld]
+max_allowed_packet = 512M
+
+[mysqldump]
+max_allowed_packet = 512M

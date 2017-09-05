@@ -192,7 +192,7 @@ $ cp my-project/.env.sample my-project/.env
 To see what else you can use this file for visit the page 
 <https://docs.docker.com/compose/env-file/> for more information.
 
-**NB! You should never add this file to VC.**
+**NB! You should never add this file to Git.**
 
 ## How to use Drush, Drupal Console, Composer or any other command depending on PHP to interact with your project?
 

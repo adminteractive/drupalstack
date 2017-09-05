@@ -30,28 +30,22 @@ up accordingly to work with Docker and other tools.
     $ git clone https://github.com/picco/drupalstack.git my-project
     ```
 
-2. Go to project directory
+2. Start project services
 
     ```bash
-    $ cd my-project
+    $ my-project/bin/start-services.sh
     ```
 
-3. Start project services
+3. Install Drupal 8
 
     ```bash
-    $ ./bin/start-services.sh
+    $ my-project/bin/install-project.sh
     ```
 
-4. Install Drupal 8
-
-    ```bash
-    $ ./bin/install-project.sh
-    ```
-
-5. Access project via web browser
+4. Access project via web browser
     
     ```bash
-    $ ./bin/show-links.sh
+    $ my-project/bin/show-links.sh
     ```
 
 ## Helper scripts
@@ -64,10 +58,10 @@ working with a Drupal project.
 * Build project services
 
   Increased the PHP memory limit? Enabled some random module for Apache? 
-Rebuild your services Docker images easily with this helper script.
+Rebuild your project services Docker images easily with this helper script.
 
     ```bash
-    $ ./bin/build-services.sh
+    $ my-project/bin/build-services.sh
     ```
 
 * Export project database dump
@@ -75,23 +69,23 @@ Rebuild your services Docker images easily with this helper script.
   Quickly create a database dump and export it to your project root directory. 
 
     ```bash
-    $ ./bin/export-database-dump.sh
+    $ my-project/bin/export-database-dump.sh
     ```
 
 * Install system-wide Portainer service
 
     ```bash
-    $ ./bin/install-portainer.sh
+    $ my-project/bin/install-portainer.sh
     ```
  
 * Install Drupal 8
 
   Kickstart your Drupal 8 project with the help of this script. Read more about
-it from here https://github.com/drupal-composer/drupal-project if you want to 
+it from here <https://github.com/drupal-composer/drupal-project> if you want to 
 know what exactly happens after you have executed this script.
 
     ```bash
-    $ ./bin/install-project.sh
+    $ my-project/bin/install-project.sh
     ```
      
 * Remove project files
@@ -101,13 +95,13 @@ script to delete all your files. Be cautious, because there is no way to
 restore them if you haven't added your project files to Git for example.
 
     ```bash
-    $ ./bin/remove-files.sh
+    $ my-project/bin/remove-files.sh
     ```
      
 * Remove system-wide Portainer service
 
     ```bash
-    $ ./bin/remove-portainer.sh
+    $ my-project/bin/remove-portainer.sh
     ```
      
 * Restart project services
@@ -115,13 +109,13 @@ restore them if you haven't added your project files to Git for example.
   Enables you to quickly restart all of your project services.
 
     ```bash
-    $ ./bin/restart-services.sh
+    $ my-project/bin/restart-services.sh
     ```
      
 * Enter httpd service
 
     ```bash
-    $ ./bin/shell-into-httpd.sh
+    $ my-project/bin/shell-into-httpd.sh
     ```
      
 * Enter MySQL service
@@ -131,7 +125,7 @@ project databases? Enter you MySQL service by using this script and start
 hacking SQL directly from the CLI.
 
     ```bash
-    $ ./bin/shell-into-mysql.sh
+    $ my-project/bin/shell-into-mysql.sh
     ```
      
 * Enter PHP service
@@ -140,7 +134,7 @@ hacking SQL directly from the CLI.
 against your Drupal project? Use this script to quickly enter your PHP service.
 
     ```bash
-    $ ./bin/shell-into-php.sh
+    $ my-project/bin/shell-into-php.sh
     ```
      
 * Show project services logs
@@ -149,7 +143,7 @@ against your Drupal project? Use this script to quickly enter your PHP service.
 Use this script to see all your project services logs for easy debugging.
 
     ```bash
-    $ ./bin/show-logs.sh
+    $ my-project/bin/show-logs.sh
     ```
      
 * Show project services ports
@@ -158,7 +152,7 @@ Use this script to see all your project services logs for easy debugging.
 multiple projects running on your machine at the same time.
 
     ```bash
-    $ ./bin/show-ports.sh
+    $ my-project/bin/show-ports.sh
     ```
      
 * Show project links
@@ -169,7 +163,7 @@ paste directly to your web browser address bar to have a quick access to your
 project.
 
     ```bash
-    $ ./bin/show-links.sh
+    $ my-project/bin/show-links.sh
     ```
      
 * Build and run project services
@@ -179,26 +173,47 @@ with Docker Compose? Simply run this script from your project directory and it
 will start your project services for you.
 
     ```bash
-    $ ./bin/start-services.sh
+    $ my-project/bin/start-services.sh
     ```
+
+## What is `.env` file used for?
+
+The `.env` file is used to store environment specific configuration to control 
+your project services behaviour (e.g. Blackfire server credentials) without 
+needing to rebuild your project services Docker images. Each time you make 
+changes to this file you must also restart your project services. If you don't 
+have `.env` file in your project root directory already then simply take the 
+`.env.sample` file as a basis for your `.env` file.
+
+```bash
+$ cp my-project/.env.sample my-project/.env
+```
+
+To see what else you can use this file for visit the page 
+<https://docs.docker.com/compose/env-file/> for more information.
+
+NB! You should never add this file to VC.
 
 ## How to use Blackfire to profile your website?
 
 To use Blackfire PHP extension to profile your site, simply visit 
-https://blackfire.io/account page and copy you personal server credentials 
+<https://blackfire.io/account> page and copy you personal server credentials 
 `Server ID` and `Server Token` to the `.env` file. In that file initialize 
 the variables `BLACKFIRE_SERVER_ID` and `BLACKFIRE_SERVER_TOKEN` accordingly. 
 After that restart your porject services.
 
 Once you have you environment properly integrated with the Blackfire service, 
-read more from here https://blackfire.io/docs/introduction about how to start 
+read more from here <https://blackfire.io/docs/introduction> about how to start 
 using it in practice.
 
 ## Configuring the host machine
 
 The only dependencies for your host machine are Docker and Docker Compose.
-Follow the set-up instructions on https://docs.docker.com/engine/installation/linux/ubuntu/ 
-and https://docs.docker.com/compose/install/ to configure your host.
+Follow the set-up instructions on 
+<https://docs.docker.com/engine/installation/linux/ubuntu/> 
+and <https://docs.docker.com/compose/install/> to configure your host.
+
+# Contribute
 
 ## License
 

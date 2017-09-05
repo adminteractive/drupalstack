@@ -75,10 +75,10 @@ fi
 
 HTTP_PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "80/tcp") 0).HostPort}}' "${HTTPD_CONTAINER}")
 
-echo "http://127.0.0.1:${HTTP_PORT}"
+echo "http://localhost:${HTTP_PORT}"
 
 HTTPS_PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "443/tcp") 0).HostPort}}' "${HTTPD_CONTAINER}")
 
-echo "https://127.0.0.1:${HTTPS_PORT}"
+echo "https://localhost:${HTTPS_PORT}"
 
 cd "${WORKING_DIR}"

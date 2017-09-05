@@ -51,7 +51,7 @@ up accordingly to work with Docker and other tools.
 5. Access project via web browser
     
     ```bash
-    $ ./bin/show-url.sh
+    $ ./bin/show-links.sh
     ```
 
 ## Helper scripts
@@ -161,7 +161,7 @@ multiple projects running on your machine at the same time.
     $ ./bin/show-ports.sh
     ```
      
-* Show project URL-s
+* Show project links
 
   Don't like to search for Apache ports from Docker Compose process list each 
 time you use it? Use this script to get only the relevant URL-s that you can 
@@ -169,7 +169,7 @@ paste directly to your web browser address bar to have a quick access to your
 project.
 
     ```bash
-    $ ./bin/show-url.sh
+    $ ./bin/show-links.sh
     ```
      
 * Build and run project services

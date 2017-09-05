@@ -182,6 +182,18 @@ will start your project services for you.
     $ ./bin/start-services.sh
     ```
 
+## How to use Blackfire to profile your website?
+
+To use Blackfire PHP extension to profile your site, simply visit 
+https://blackfire.io/account page and copy you personal server credentials 
+`Server ID` and `Server Token` to the `.env` file. In that file initialize 
+the variables `BLACKFIRE_SERVER_ID` and `BLACKFIRE_SERVER_TOKEN` accordingly. 
+After that restart your porject services.
+
+Once you have you environment properly integrated with the Blackfire service, 
+read more from here https://blackfire.io/docs/introduction about how to start 
+using it in practice.
+
 ## Configuring the host machine
 
 The only dependencies for your host machine are Docker and Docker Compose.

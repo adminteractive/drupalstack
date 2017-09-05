@@ -243,7 +243,12 @@ and <https://docs.docker.com/compose/install/> to configure your host.
 
 ## Contribute
 
-    // TODO
+1. Fork this project
+2. Make changes to your project repository
+3. Create a pull request
+4. Wait for the changes to be merged
+
+**NB! This will change in the future.**
 
 ## History
 

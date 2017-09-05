@@ -59,7 +59,7 @@ up accordingly to work with Docker and other tools.
 Directory `bin` contains many helper scripts for frequent operations that you 
 definitely want to use to control your project in various ways. It is 
 encourage to contribute more such scripts to improve the overall workflow when 
-working with a project.
+working with a Drupal project.
 
 * Build project services
 

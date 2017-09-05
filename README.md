@@ -192,7 +192,7 @@ $ cp my-project/.env.sample my-project/.env
 To see what else you can use this file for visit the page 
 <https://docs.docker.com/compose/env-file/> for more information.
 
-NB! You should never add this file to VC.
+**NB! You should never add this file to VC.**
 
 ## How to use Drush, Drupal Console, Composer or any other command depending on PHP to interact with your project?
 
@@ -220,7 +220,7 @@ simply follow these instructions:
     $ drush status
     ```
 
-NB! The same instructions are valid for all other commands as well.
+**NB! Those same instructions are valid for all other commands as well.**
 
 ## How to use Blackfire to profile your website?
 

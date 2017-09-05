@@ -162,6 +162,6 @@ COPY ./src/etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY ./src/etc/cron.d/drupalstack /etc/cron.d/drupalstack
 COPY ./src/usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
 
-WORKDIR /usr/local/apache2/htdocs/web
+WORKDIR /usr/local/apache2/htdocs
 
 ENTRYPOINT ["/entrypoint.sh"]

@@ -14,4 +14,4 @@ COPY ./src/usr/local/apache2/conf/httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./src/usr/local/apache2/conf/extra/httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 COPY ./src/usr/local/apache2/conf/extra/httpd-default.conf /usr/local/apache2/conf/extra/httpd-default.conf
 
-WORKDIR /usr/local/apache2/htdocs/web
+WORKDIR /usr/local/apache2/htdocs

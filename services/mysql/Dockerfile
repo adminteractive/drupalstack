@@ -8,4 +8,4 @@ COPY ./src/etc/mysql/conf.d/mysql.cnf /etc/mysql/conf.d/mysql.cnf
 
 RUN chmod 600 /etc/mysql/conf.d/mysql.cnf
 
-WORKDIR /usr/local/apache2/htdocs/web
+WORKDIR /usr/local/apache2/htdocs

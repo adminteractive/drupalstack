@@ -24,13 +24,13 @@ quickstart guide.
 NB! This quickstart guide assumes that you already have your host machine set 
 up accordingly to work with Docker and other tools.
 
-1. Clone this project
+1. Clone this Git repository
 
     ```bash
     $ git clone https://github.com/picco/drupalstack.git my-project
     ```
 
-2. Start project services
+2. Start your project services
 
     ```bash
     $ my-project/bin/start-services.sh
@@ -42,7 +42,7 @@ up accordingly to work with Docker and other tools.
     $ my-project/bin/install-project.sh
     ```
 
-4. Access project via web browser
+4. Access your project via your preferred web browser
     
     ```bash
     $ my-project/bin/show-links.sh
@@ -58,7 +58,7 @@ working with a Drupal project.
 * Build project services
 
   Increased the PHP memory limit? Enabled some random module for Apache? 
-Rebuild your project services Docker images easily with this helper script.
+Rebuild your project services easily with this helper script.
 
     ```bash
     $ my-project/bin/build-services.sh
@@ -180,10 +180,10 @@ will start your project services for you.
 
 The `.env` file is used to store environment specific configuration to control 
 your project services behaviour (e.g. Blackfire server credentials) without 
-needing to rebuild your project services Docker images. Each time you make 
-changes to this file you must also restart your project services. If you don't 
-have `.env` file in your project root directory already then simply take the 
-`.env.sample` file as a basis for your `.env` file.
+needing to rebuild your project services. Each time you make changes to this 
+file you must also restart your project services. If you don't have `.env` file 
+in your project root directory already then simply take the `.env.sample` file 
+as a basis for your `.env` file as follows:
 
 ```bash
 $ cp my-project/.env.sample my-project/.env
@@ -193,6 +193,34 @@ To see what else you can use this file for visit the page
 <https://docs.docker.com/compose/env-file/> for more information.
 
 NB! You should never add this file to VC.
+
+## How to use Drush, Drupal Console, Composer or any other command depending on PHP to interact with your project?
+
+Since your PHP service actually runs inside an isolated environment you can't 
+interact with it in the conventional way. So to use Drush etc. you must first 
+shell into your running PHP service and execute your desired command from 
+there. For example to execute a Drush command against your Drupal project, 
+simply follow these instructions:
+
+1. Enter your project PHP service
+
+    ```bash
+    $ my-project/bin/shell-into-php.sh
+    ```
+
+2. Change directory to Drupal root directory
+
+    ```bash
+    $ cd /usr/local/apache2/htdocs/web
+    ```
+
+3. Execute your Drush command
+
+    ```bash
+    $ drush status
+    ```
+
+NB! The same instructions are valid for all other commands as well.
 
 ## How to use Blackfire to profile your website?
 
@@ -216,6 +244,10 @@ and <https://docs.docker.com/compose/install/> to configure your host.
 ## Contribute
 
     // TODO
+
+## History
+
+https://github.com/dockerizedrupal/drupalcamp-baltics-2015
 
 ## License
 

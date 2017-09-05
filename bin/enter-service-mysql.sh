@@ -22,7 +22,7 @@ if [ "${?}" -ne 0 ]; then
 fi
 
 if [ ! -f "${PROJECT_ROOT}/.env" ]; then
-  cp "${PROJECT_ROOT}/.env" "${PROJECT_ROOT}/.env.sample"
+  cp "${PROJECT_ROOT}/.env.sample" "${PROJECT_ROOT}/.env"
 fi
 
 mysql_container_exists() {

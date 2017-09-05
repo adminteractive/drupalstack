@@ -91,8 +91,10 @@ know what exactly happens after you have executed this script.
 * Remove project files
 
   Need to remove your project files and start over from scratch? Use this 
-script to delete all your files. Be cautious, because there is no way to 
-restore them if you haven't added your project files to Git for example.
+script to delete all your files.
+
+  **NB! Be cautious, because there is no way to restore them if you haven't 
+added your project files to Git for example.**
 
     ```bash
     $ my-project/bin/remove-files.sh

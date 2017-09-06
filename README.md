@@ -207,7 +207,7 @@ preferred text editor.
     $ my-project/bin/build-services.sh
     ```
 
-4. Restart your porject services.
+4. Restart your project services.
 
     ```bash
     $ my-project/bin/restart-services.sh
@@ -247,7 +247,7 @@ To use Blackfire PHP extension to profile your site, simply visit
 <https://blackfire.io/account> page and copy you personal server credentials 
 `Server ID` and `Server Token` to the `.env` file. In that file initialize 
 the variables `BLACKFIRE_SERVER_ID` and `BLACKFIRE_SERVER_TOKEN` accordingly. 
-After that restart your porject services.
+After that restart your project services.
 
 Once you have you environment properly integrated with the Blackfire service, 
 read more from here <https://blackfire.io/docs/introduction> about how to start 

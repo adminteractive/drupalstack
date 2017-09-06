@@ -213,6 +213,52 @@ preferred text editor.
     $ my-project/bin/restart-services.sh
     ```
 
+## How to enable MySQL slow query log?
+
+1. Open `my-project/services/mysql/src/etc/mysql/conf.d/mysql.cnf` file in your 
+preferred text editor.
+2. Change line `slow_query_log = 0` to `slow_query_log = 1`.
+3. Rebuild your project services.
+
+    ```bash
+    $ my-project/bin/build-services.sh
+    ```
+
+4. Restart your project services.
+
+    ```bash
+    $ my-project/bin/restart-services.sh
+    ```
+     
+5. Enter your MySQL service.
+
+    ```bash
+    $ my-project/bin/shell-into-mysql.sh
+    ```
+     
+6. Watch `/var/log/mysql/slow-query.log` file for changes.
+
+    ```bash
+    $ tail -f /var/log/mysql/slow-query.log
+    ```
+     
+## How do I set up a Cron job?
+
+1. Open `my-project/services/php/src/etc/cron.d/drupalstack` file in your 
+preferred text editor.
+2. Make changes to existing Cron jobs or add new ones.
+3. Rebuild your project services.
+
+    ```bash
+    $ my-project/bin/build-services.sh
+    ```
+
+4. Restart your project services.
+
+    ```bash
+    $ my-project/bin/restart-services.sh
+    ```
+
 ## How to use Drush, Drupal Console, Composer or any other command depending on PHP to interact with your project?
 
 Since your PHP service actually runs inside an isolated environment you can't 

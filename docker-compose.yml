@@ -5,6 +5,7 @@ services:
   httpd:
     build: ./services/httpd
     hostname: httpd
+    network_mode: bridge
     ports:
       - "80"
       - "443"
@@ -15,6 +16,7 @@ services:
   php:
     build: ./services/php
     hostname: php
+    network_mode: bridge
     volumes:
       - ./www:/usr/local/apache2/htdocs
     links:
@@ -26,6 +28,7 @@ services:
   mysql:
     build: ./services/mysql
     hostname: mysql
+    network_mode: bridge
     volumes:
       - mysql-data:/var/lib/mysql
       - ./www:/usr/local/apache2/htdocs
@@ -38,11 +41,13 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   blackfire:
     image: blackfire/blackfire:latest
+    network_mode: bridge
     environment:
       BLACKFIRE_SERVER_ID: ${BLACKFIRE_SERVER_ID}
       BLACKFIRE_SERVER_TOKEN: ${BLACKFIRE_SERVER_TOKEN}
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
+    network_mode: bridge
     ports:
       - "80"
     links:
@@ -52,6 +57,7 @@ services:
       PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   mailhog:
     image: mailhog/mailhog:latest
+    network_mode: bridge
     ports:
       - "1025"
       - "8025"

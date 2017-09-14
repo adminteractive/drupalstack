@@ -1,6 +1,5 @@
 version: '3'
-volumes:
-  mysql-data:
+
 services:
   httpd:
     build: ./services/httpd
@@ -61,3 +60,6 @@ services:
     ports:
       - "1025"
       - "8025"
+
+volumes:
+  mysql-data:

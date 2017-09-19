@@ -155,7 +155,7 @@ RUN curl https://drupalconsole.com/installer -L -o /usr/local/bin/drupal \
 COPY ./src/entrypoint.sh /
 COPY ./src/etc/mysql/my.cnf /etc/mysql/my.cnf
 
-RUN chmod 600 /etc/mysql/my.cnf
+RUN chmod 644 /etc/mysql/my.cnf
 
 COPY ./src/etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY ./src/etc/cron.d/drupalstack /etc/cron.d/drupalstack

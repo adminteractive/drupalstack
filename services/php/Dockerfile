@@ -153,9 +153,9 @@ RUN curl https://drupalconsole.com/installer -L -o /usr/local/bin/drupal \
   && echo "1 en /tmp no no yes no no yes" | drupal init
 
 COPY ./src/entrypoint.sh /
-COPY ./src/etc/mysql/conf.d/mysql.cnf /etc/mysql/conf.d/mysql.cnf
+COPY ./src/etc/mysql/my.cnf /etc/mysql/my.cnf
 
-RUN chmod 600 /etc/mysql/conf.d/mysql.cnf
+RUN chmod 600 /etc/mysql/my.cnf
 
 COPY ./src/etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 COPY ./src/etc/cron.d/drupalstack /etc/cron.d/drupalstack

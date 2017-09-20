@@ -4,7 +4,9 @@ RUN echo "Europe/Tallinn" > /etc/timezone \
   && dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update \
-  && apt-get install -y openssl \
+  && apt-get install -y \
+     nano \
+     openssl \
   && rm -rf /var/lib/apt/lists/*
 
 RUN openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout /usr/local/apache2/conf/server.key -out /usr/local/apache2/conf/server.crt -subj "/C=/ST=/L=/O=/OU=/CN=drupalstack"

@@ -5,6 +5,7 @@ RUN echo "Europe/Tallinn" > /etc/timezone \
 
 RUN apt-get update \
   && apt-get install -y \
+     nano \
      cron \
      libfreetype6-dev \
      libjpeg62-turbo-dev \

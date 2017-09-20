@@ -73,13 +73,13 @@ elif [ -z "$(httpd_container_running ${HTTPD_CONTAINER})" ]; then
   sleep 30
 fi
 
+HOSTNAME="$(hostname)"
+
 HTTP_PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "80/tcp") 0).HostPort}}' "${HTTPD_CONTAINER}")
 
-echo "http://localhost:${HTTP_PORT}"
+echo "http://${HOSTNAME}:${HTTP_PORT}"
 
 HTTPS_PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "443/tcp") 0).HostPort}}' "${HTTPD_CONTAINER}")
-
-HOSTNAME="$(hostname)"
 
 echo "https://${HOSTNAME}:${HTTPS_PORT}"
 

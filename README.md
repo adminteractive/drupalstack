@@ -203,7 +203,7 @@ preferred text editor.
 
 ## How to enable MySQL slow query log?
 
-1. Open `my-project/services/mysql/src/etc/mysql/conf.d/mysql.cnf` file in your 
+1. Open `my-project/services/mysql/src/etc/mysql/my.cnf` file in your 
 preferred text editor.
 2. Change line `slow_query_log = 0` to `slow_query_log = 1`.
 3. Rebuild your project services.

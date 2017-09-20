@@ -73,6 +73,10 @@ elif [ -z "$(mysql_container_running ${MYSQL_CONTAINER})" ]; then
   sleep 30
 fi
 
-docker exec -it "${MYSQL_CONTAINER}" bash -c "mysqldump -h127.0.0.1 -uroot -proot drupal | gzip > /usr/local/apache2/htdocs/$(date +%Y-%m-%d-%H.%M.%S)_drupal.sql.gz"
+FILENAME="$(date +%Y-%m-%d-%H.%M.%S)_drupal.sql.gz"
+
+docker exec -it "${MYSQL_CONTAINER}" bash -c "mysqldump -h127.0.0.1 -uroot -proot drupal | gzip > /usr/local/apache2/htdocs/${FILENAME}"
+
+echo "The database dump was exported to: ${PROJECT_ROOT}/www/${FILENAME}"
 
 cd "${WORKING_DIR}"

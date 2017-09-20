@@ -301,8 +301,6 @@ and <https://docs.docker.com/compose/install/> to configure your host.
 3. Create a pull request.
 4. Wait for the changes to be merged.
 
-**NB! This will change in the future.**
-
 ## Where it all started
 
 [Using Docker to boost your development experience with Drupal](https://github.com/dockerizedrupal/drupalcamp-baltics-2015)

@@ -71,12 +71,6 @@ Rebuild your project services easily with this helper script.
     ```bash
     $ my-project/bin/export-database-dump.sh
     ```
-
-* Install system-wide Portainer service.
-
-    ```bash
-    $ my-project/bin/install-portainer.sh
-    ```
  
 * Install Drupal 8.
 
@@ -99,13 +93,7 @@ added your project files to Git for example.**
     ```bash
     $ my-project/bin/remove-files.sh
     ```
-     
-* Remove system-wide Portainer service.
 
-    ```bash
-    $ my-project/bin/remove-portainer.sh
-    ```
-     
 * Restart project services.
 
   Enables you to quickly restart all of your project services.

@@ -79,6 +79,8 @@ echo "http://localhost:${HTTP_PORT}"
 
 HTTPS_PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "443/tcp") 0).HostPort}}' "${HTTPD_CONTAINER}")
 
-echo "https://localhost:${HTTPS_PORT}"
+HOSTNAME="$(hostname)"
+
+echo "https://${HOSTNAME}:${HTTPS_PORT}"
 
 cd "${WORKING_DIR}"

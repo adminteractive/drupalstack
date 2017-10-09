@@ -1,0 +1,22 @@
+Index: services/php/Dockerfile
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- services/php/Dockerfile (revision 68d214a81e985013c669a40d72ad2bb46a1e66aa)
++++ services/php/Dockerfile (revision )
+@@ -1,4 +1,4 @@
+-FROM php:7.1-fpm
++FROM php:5.6-fpm
+
+ RUN echo "Europe/Tallinn" > /etc/timezone \
+ && dpkg-reconfigure -f noninteractive tzdata
+@@ -115,7 +115,7 @@
+ RUN pecl install xdebug-2.5.5 \
+ && docker-php-ext-enable xdebug
+
+-RUN pecl install memcached-3.0.3 \
++RUN pecl install memcached-2.2.0 \
+ && docker-php-ext-enable memcached
+
+ RUN pecl install redis-3.1.3 \

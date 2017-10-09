@@ -1,0 +1,30 @@
+Index: services/httpd/src/usr/local/apache2/conf/extra/httpd-php.conf
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- services/httpd/src/usr/local/apache2/conf/extra/httpd-php.conf  (revision 4cfb6c1ece7e4bdc7ad81a800e6f6d23f6d9c99c)
++++ services/httpd/src/usr/local/apache2/conf/extra/httpd-php.conf  (revision )
+@@ -1,3 +1,3 @@
+ SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+-ProxyPassMatch "^/(.*\.php(/.*)?)$" "fcgi://php:9000/usr/local/apache2/htdocs/web/" timeout=600
++ProxyPassMatch "^/(.*\.php(/.*)?)$" "fcgi://php:9000/usr/local/apache2/htdocs/drupal/" timeout=600
+Index: services/httpd/src/usr/local/apache2/conf/httpd.conf
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- services/httpd/src/usr/local/apache2/conf/httpd.conf    (revision 4cfb6c1ece7e4bdc7ad81a800e6f6d23f6d9c99c)
++++ services/httpd/src/usr/local/apache2/conf/httpd.conf    (revision )
+@@ -255,8 +255,8 @@
+ # documents. By default, all requests are taken from this directory, but
+ # symbolic links and aliases may be used to point to other locations.
+ #
+-DocumentRoot "/usr/local/apache2/htdocs/web"
+-<Directory "/usr/local/apache2/htdocs/web">
++DocumentRoot "/usr/local/apache2/htdocs/drupal"
++<Directory "/usr/local/apache2/htdocs/drupal">
+ #
+ # Possible values for the Options directive are "None", "All",
+ # or any combination of:

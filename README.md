@@ -166,6 +166,13 @@ will start your project services for you.
     $ my-project/bin/start-services.sh
     ```
 
+## Patches
+
+Sometimes you need an extra bit of functionality that Drupalstack doesn't 
+provide by default. If you find that your changes to your stack are somewhat 
+universal and someone else might benefit from it as well then just create a 
+patch from your changes and it to the `patches` directory.
+
 ## What is `.env` file used for?
 
 The `.env` file is used to store environment specific configuration to control 

@@ -55,4 +55,4 @@ if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-no
 fi
 
 # set colors for terminal
-export PS1="\[\033[38;5;10m\]\u@PHP:\w\\$ \[$(tput sgr0)\]"
+export PS1="\[\033[38;5;10m\]\u@MYSQL:\w\\$ \[$(tput sgr0)\]"

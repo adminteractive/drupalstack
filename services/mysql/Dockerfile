@@ -10,6 +10,7 @@ RUN apt-get update \
 
 COPY ./src/docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 COPY ./src/etc/mysql/my.cnf /etc/mysql/my.cnf
+COPY ./src/etc/bash.bashrc /etc/bash.bashrc
 
 RUN chmod 644 /etc/mysql/my.cnf
 

@@ -23,6 +23,7 @@ services:
       - mailhog:mailhog
       - blackfire:blackfire
     environment:
+      LOCAL_USER_ID: ${LOCAL_USER_ID}
       XDEBUG_CONFIG: remote_connect_back=${XDEBUG_REMOTE_CONNECT_BACK} idekey=${XDEBUG_IDEKEY} remote_host=${XDEBUG_REMOTE_HOST} remote_port=${XDEBUG_REMOTE_PORT}
   mysql:
     build: ./services/mysql

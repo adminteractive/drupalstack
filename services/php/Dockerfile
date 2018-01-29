@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.1.13-fpm
 
 RUN echo "Europe/Tallinn" > /etc/timezone \
   && dpkg-reconfigure -f noninteractive tzdata

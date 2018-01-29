@@ -1,4 +1,4 @@
-FROM httpd:2.4
+FROM httpd:2.4.29
 
 RUN echo "Europe/Tallinn" > /etc/timezone \
   && dpkg-reconfigure -f noninteractive tzdata
@@ -16,5 +16,7 @@ COPY ./src/usr/local/apache2/conf/httpd.conf /usr/local/apache2/conf/httpd.conf
 COPY ./src/usr/local/apache2/conf/extra/httpd-ssl.conf /usr/local/apache2/conf/extra/httpd-ssl.conf
 COPY ./src/usr/local/apache2/conf/extra/httpd-default.conf /usr/local/apache2/conf/extra/httpd-default.conf
 COPY ./src/etc/bash.bashrc /etc/bash.bashrc
+
+RUN cat /usr/local/apache2/conf/httpd.conf
 
 WORKDIR /usr/local/apache2/htdocs

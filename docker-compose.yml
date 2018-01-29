@@ -40,13 +40,13 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   blackfire:
-    image: blackfire/blackfire:latest
+    image: blackfire/blackfire:1.15.0
     network_mode: bridge
     environment:
       BLACKFIRE_SERVER_ID: ${BLACKFIRE_SERVER_ID}
       BLACKFIRE_SERVER_TOKEN: ${BLACKFIRE_SERVER_TOKEN}
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin/phpmyadmin:4.7.7-1
     network_mode: bridge
     ports:
       - "80"
@@ -56,7 +56,7 @@ services:
       PMA_USER: root
       PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   mailhog:
-    image: mailhog/mailhog:latest
+    image: mailhog/mailhog:v1.0.0
     network_mode: bridge
     ports:
       - "1025"

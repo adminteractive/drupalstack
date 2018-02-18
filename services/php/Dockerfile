@@ -145,7 +145,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && mv composer.phar /usr/local/bin/composer \
   && chmod +x /usr/local/bin/composer
 
-RUN wget http://files.drush.org/drush.phar -O /usr/local/bin/drush \
+RUN wget https://github.com/drush-ops/drush/releases/download/8.1.16/drush.phar -O /usr/local/bin/drush \
   && chmod +x /usr/local/bin/drush \
   && echo "y" | drush init
 

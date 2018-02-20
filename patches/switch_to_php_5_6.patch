@@ -12,11 +12,11 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
  RUN echo "Europe/Tallinn" > /etc/timezone \
  && dpkg-reconfigure -f noninteractive tzdata
 @@ -115,7 +115,7 @@
- RUN pecl install xdebug-2.5.5 \
+ RUN pear install pecl/xdebug-2.5.5 \
  && docker-php-ext-enable xdebug
 
 -RUN pecl install memcached-3.0.3 \
-+RUN pecl install memcached-2.2.0 \
++RUN pear install pecl/memcached-2.2.0 \
  && docker-php-ext-enable memcached
 
- RUN pecl install redis-3.1.3 \
+ RUN pear install pecl/redis-3.1.3 \

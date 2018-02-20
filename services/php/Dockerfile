@@ -112,16 +112,16 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
   && docker-php-ext-configure ldap \
   && docker-php-ext-install ldap
 
-RUN pecl install xdebug-2.5.5 \
+RUN pear install pecl/xdebug-2.5.5 \
   && docker-php-ext-enable xdebug
 
-RUN pecl install memcached-3.0.3 \
+RUN pear install pecl/memcached-3.0.3 \
   && docker-php-ext-enable memcached
 
-RUN pecl install redis-3.1.3 \
+RUN pear install pecl/redis-3.1.3 \
   && docker-php-ext-enable redis
 
-RUN pecl install imagick-3.4.3 \
+RUN pear install pecl/imagick-3.4.3 \
   && docker-php-ext-enable imagick
 
 RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \

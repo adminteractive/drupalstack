@@ -145,14 +145,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && mv composer.phar /usr/local/bin/composer \
   && chmod +x /usr/local/bin/composer
 
-RUN wget https://github.com/drush-ops/drush/releases/download/8.1.16/drush.phar -O /usr/local/bin/drush \
-  && chmod +x /usr/local/bin/drush \
-  && echo "y" | drush init
-
-RUN curl https://drupalconsole.com/installer -L -o /usr/local/bin/drupal \
-  && chmod +x /usr/local/bin/drupal \
-  && echo "1 en /tmp no no yes no no yes" | drupal init
-
 COPY ./src/entrypoint.sh /
 COPY ./src/etc/mysql/my.cnf /etc/mysql/my.cnf
 

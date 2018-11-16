@@ -156,6 +156,9 @@ COPY ./src/usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
 COPY ./src/etc/bash.bashrc /etc/bash.bashrc
 COPY ./src/etc/bash.bashrc /etc/skel/.bashrc
 
+# Give execution rights on the cron job
+RUN chmod 0644 /etc/cron.d/drupalstack
+
 WORKDIR /usr/local/apache2/htdocs
 
 ENTRYPOINT ["/entrypoint.sh"]

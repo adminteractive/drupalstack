@@ -1,7 +1,9 @@
 # Drupalstack
 
 ## Unsupported project notice
-**This project is not supported. Please consider migrating to tools like ddev or Lando.
+This project is not supported anymore. Please consider migrating to tools like ddev or Lando.
+
+## About
 
 Docker based development environment for Drupal 8 using only official Docker images.
 
